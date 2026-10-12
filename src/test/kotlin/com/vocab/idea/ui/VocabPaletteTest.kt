@@ -57,4 +57,24 @@ class VocabPaletteTest {
         assertEquals(10, Vocabulary.MIN_FONT_SIZE)
         assertEquals(36, Vocabulary.MAX_FONT_SIZE)
     }
+
+    @Test
+    fun `the old green spelling colour is migrated to the current default`() {
+        // Without this an upgraded install keeps painting the word green.
+        assertEquals(Vocabulary.DEFAULT_SPELLING, Vocabulary.migratedSpelling("#2E7D32"))
+        assertEquals(Vocabulary.DEFAULT_SPELLING, Vocabulary.migratedSpelling("2e7d32"))
+    }
+
+    @Test
+    fun `a spelling colour the user picked is kept`() {
+        assertEquals("#123456", Vocabulary.migratedSpelling("#123456"))
+        assertEquals("#123456", Vocabulary.migratedSpelling("123456"))
+    }
+
+    @Test
+    fun `an unusable spelling colour becomes the default`() {
+        assertEquals(Vocabulary.DEFAULT_SPELLING, Vocabulary.migratedSpelling(null))
+        assertEquals(Vocabulary.DEFAULT_SPELLING, Vocabulary.migratedSpelling(""))
+        assertEquals(Vocabulary.DEFAULT_SPELLING, Vocabulary.migratedSpelling("#GGG"))
+    }
 }

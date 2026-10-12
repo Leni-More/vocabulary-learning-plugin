@@ -45,7 +45,7 @@ class VocabSettingsConfigurable : Configurable {
             )
         )
 
-        spellingField = JTextField(state.spellingColor, 9)
+        spellingField = JTextField(Vocabulary.migratedSpelling(state.spellingColor), 9)
         meaningField = JTextField(state.meaningColor, 9)
         sentenceField = JTextField(state.sentenceColor, 9)
         mnemonicField = JTextField(state.mnemonicColor, 9)
@@ -127,7 +127,7 @@ class VocabSettingsConfigurable : Configurable {
         val state = settings.state
         return (dailySpinner.value as Int) != state.dailyNewWords ||
             (fontSpinner.value as Int) != state.fontSize ||
-            normalize(spellingField.text, Vocabulary.DEFAULT_SPELLING) != normalize(state.spellingColor, Vocabulary.DEFAULT_SPELLING) ||
+            Vocabulary.migratedSpelling(spellingField.text) != Vocabulary.migratedSpelling(state.spellingColor) ||
             normalize(meaningField.text, Vocabulary.DEFAULT_MEANING) != normalize(state.meaningColor, Vocabulary.DEFAULT_MEANING) ||
             normalize(sentenceField.text, Vocabulary.DEFAULT_SENTENCE) != normalize(state.sentenceColor, Vocabulary.DEFAULT_SENTENCE) ||
             normalize(mnemonicField.text, Vocabulary.DEFAULT_MNEMONIC) != normalize(state.mnemonicColor, Vocabulary.DEFAULT_MNEMONIC)
@@ -149,7 +149,7 @@ class VocabSettingsConfigurable : Configurable {
         val state = settings.state
         dailySpinner.value = state.dailyNewWords
         fontSpinner.value = state.fontSize.coerceIn(Vocabulary.MIN_FONT_SIZE, Vocabulary.MAX_FONT_SIZE)
-        spellingField.text = state.spellingColor
+        spellingField.text = Vocabulary.migratedSpelling(state.spellingColor)
         meaningField.text = state.meaningColor
         sentenceField.text = state.sentenceColor
         mnemonicField.text = state.mnemonicColor

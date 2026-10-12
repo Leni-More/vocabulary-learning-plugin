@@ -15,7 +15,9 @@ class VocabSettings : PersistentStateComponent<VocabSettings.State> {
 
         /** Appearance of the tool window, editable in Settings > Tools > vocabulary-learning. */
         var fontSize: Int = 14
-        var spellingColor: String = "#2E7D32"
+
+        /** "#5A5A5A" means "follow the button colour"; see Vocabulary.spellingColor. */
+        var spellingColor: String = "#5A5A5A"
         var meaningColor: String = "#1A1A1A"
         var sentenceColor: String = "#6A6A6A"
         var mnemonicColor: String = "#8A6D3B"
