@@ -1,0 +1,15 @@
+# Copy this file to gradle.properties and adjust the path to your IntelliJ IDEA install.
+#
+#   Windows:  ideaLocalPath=C:/Program Files/JetBrains/IntelliJ IDEA 2026.2
+#   macOS:    ideaLocalPath=/Applications/IntelliJ IDEA.app
+#   Linux:    ideaLocalPath=/opt/idea
+#
+# It must be the directory that contains `lib/` and `plugins/`. The build fails with a clear
+# message when this is missing, so a wrong value is easy to spot.
+ideaLocalPath=D:/JetBrains/IntelliJ IDEA 2026.2.0.1
+
+kotlin.code.style=official
+org.gradle.jvmargs=-Xmx2048m
+
+# Optional: extra JDK locations for Gradle's toolchain detection (needs JDK 21).
+# org.gradle.java.installations.paths=C:/Program Files/Java/jdk-21

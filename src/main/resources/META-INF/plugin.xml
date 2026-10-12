@@ -1,0 +1,17 @@
+<idea-plugin>
+    <id>com.vocab.vocabulary-idea-plugin</id>
+    <name>vocabulary-learning</name>
+    <vendor>vocab</vendor>
+    <description>在 IDE 里边写代码边背单词，支持本地词库复习排期。</description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="Vocab"
+                    factoryClass="com.vocab.idea.ui.VocabToolWindowFactory"
+                    anchor="right"/>
+        <applicationConfigurable parentId="tools"
+                                 displayName="vocabulary-learning"
+                                 instance="com.vocab.idea.ui.VocabSettingsConfigurable"/>
+    </extensions>
+</idea-plugin>
