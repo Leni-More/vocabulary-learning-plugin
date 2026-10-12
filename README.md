@@ -59,31 +59,37 @@
 
 ---
 
-## 安装
+## 安装已发布版本
 
-### 1. 安装插件
-
-从源码构建：
+```text
+1. 在 Release 下载发布版本 vocabulary-idea-plugin-xxx.zip
+2. 在 IDEA 中安装：
+3. `Settings` › `Plugins` › 右上角齿轮 › `Install Plugin from Disk…`
+4. 选择上面生成的 zip
+5. 点击应用后在侧边栏找 Vocab 名称插件
+```
+## 从源码构建
 
 ```bash
-./gradlew buildPlugin
+# 完整构建 + 运行测试
+./gradlew clean build buildPlugin
+
+# 只跑测试
+./gradlew test
+
+# 产物
+ls build/distributions/
 ```
 
-产物：`build/distributions/vocabulary-idea-plugin-<version>.zip`
-
-在 IDEA 中安装：
-
-1. `Settings` › `Plugins` › 右上角齿轮 › `Install Plugin from Disk…`
-2. 选择上面生成的 zip
-3. 重启 IDEA
 
 ### 2. 下载词库
 
 插件**不包含词库**（词库体积大，单独分发）。请从下面的地址下载：
 
-> **词库下载地址**：见项目介绍
 
-下载得到的应该是一个 `.json` 文件，格式为**每行一个单词**（NDJSON）。
+> **[https://github.com/kajweb/dict](https://github.com/kajweb/dict)**
+
+解压得到的一个 `.json` 文件，格式为**每行一个单词**（NDJSON）。
 
 ### 环境要求
 
